@@ -26,8 +26,13 @@ class Calculator extends Component {
   	e.preventDefault(e);
   	let num1 = parseFloat(this.state.val1);
   	let num2 = parseFloat(this.state.val2);
+
   	this.setState({ total: ( num1 + num2 ) });
   }
+
+
+
+
   subtractNumbers(e) {
   	e.preventDefault(e);
   	let num1 = parseFloat(this.state.val1);
@@ -46,17 +51,22 @@ class Calculator extends Component {
   	let num2 = parseFloat(this.state.val2);
   	this.setState({ total: ( num1 / num2 ) });
   }
+
    clearTotal(e) {
   	e.preventDefault(e);
   	this.setState({ total: 'answer', val1: '', val2: '' });
   }
+
   handleChange1(event) {
     this.setState({val1: event.target.value})
   }
   handleChange2(event) {
    	this.setState({val2: event.target.value})
-
   }
+
+
+
+
 
 	render() {
 		return (
@@ -66,15 +76,15 @@ class Calculator extends Component {
 	    		<form  onSubmit={this.clearTotal} className='clearTotal'>
 		    		<input className='clear' type='submit' value='Clear' /> 
 	    		</form>
-	    			<form className='input'>
-	  					<input type='number' className='num' value={this.state.val1} onChange={this.handleChange1}/>
-		    			<input type='number' className='num' value={this.state.val2} onChange={this.handleChange2}/>
-		    		</form>
+    			<form className='input'>
+  					<input type='number' className='num' value={this.state.val1} onChange={this.handleChange1}/>
+	    			<input type='number' className='num' value={this.state.val2} onChange={this.handleChange2}/>
+	    		</form>
 				<div className="calc">
 		  			<form onSubmit={this.addNumbers}>
 		  				<div className="math">
 		   					<input hidden value={this.state.val1} onChange={this.handleChange1}/>
-		    				<input hidden value={this.state.val2} onChange={this.handleChange2}/>
+		    				<input  hidden value={this.state.val2} onChange={this.handleChange2}/>
 		    				<input className='submit' type="submit" value="+" />
 		  				</div>
 		  			</form>
